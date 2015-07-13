@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "../struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.multipart.maxSize" value="41943040"/>
+	<constant name="struts.allowed.action.names" value="[a-zA-Z0-9_!\$]*"/>
+	
+	<package name="struts-default-iscs" extends="struts-default" abstract="true">
+		<interceptors>
+            <interceptor name="actionAfter" class="cn.com.iscs.xui.ActionAfterInterceptor"/>
+            <interceptor-stack name="interceptorStack">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="actionAfter"/>
+                <interceptor-ref name="fileUpload">
+                	<param name="allowedExtensionsSet">png,gif,jpeg,jpg,doc,docx,ppt,pptx,xls,xlsx,pdf,txt,avi,flv,rar,zip</param>
+                	<!-- 文件大小  40M -->
+                	<param name="maximumSize">41943040</param>
+            	</interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="interceptorStack"/>
+	</package>
+	
+	<package name="default" extends="struts-default-iscs">
+	    <action name="testTask" class="testTask"></action>
+		<action name="homeAction" class="homeAction"></action>
+		<action name="testAction" class="testAction"></action>
+	</package>
+	
+
+	
+	<package name="openapi" extends="struts-default-iscs" namespace="/openapi">
+
+	</package>
+	
+	<package name="mobile" extends="struts-default-iscs">
+
+	</package>
+
+</struts>

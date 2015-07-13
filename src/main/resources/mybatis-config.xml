@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false"/>
+		<setting name="defaultExecutorType" value="SIMPLE"/>
+	</settings>
+	<typeAliases>
+		<!-- 不用再注册,采用自动注册  2012/7/12 -->
+		<typeAlias alias="pageParameter" type="cn.com.iscs.ecm.util.PageParameter"/>
+	</typeAliases>
+	
+	<plugins>
+		<plugin interceptor="cn.com.iscs.mybatis.StatementHandlerInterceptor"></plugin>
+	</plugins>
+</configuration>

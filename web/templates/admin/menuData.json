@@ -1,0 +1,25 @@
+[{
+  "items": [{"items": [], "url": "content_test.html", "icon": "click", "name": "子菜单1"}, {
+    "items": [],
+    "url": "content_test.html",
+    "icon": "click",
+    "name": "子菜单2"
+  }, {
+    "items": [],
+    "url": "content_test.html",
+    "icon": "click",
+    "name": "子菜单3"
+  }], "url": "content_test.html", "icon": "click", "name": "主菜单1ajax"
+}, {
+  "items": [{"items": [], "url": "www.baidu.com", "icon": "click", "name": "子菜单1"}, {
+    "items": [],
+    "url": "content_test.html",
+    "icon": "click",
+    "name": "子菜单2"
+  }, {
+    "items": [],
+    "url": "content_test.html",
+    "icon": "click",
+    "name": "子菜单3"
+  }], "url": "content_test.html", "icon": "click", "name": "主菜单2ajax"
+}]
