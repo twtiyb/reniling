@@ -1,5 +1,6 @@
 package com.reniling.action;
 
+import com.reniling.entity.Shop;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,24 +33,18 @@ public class MyController {
         Map mapParam = request.getParameterMap();
 
 
+        Shop shop1 = new Shop();
+        shop1.setShopName("店铺A");
+        shop1.setShopId("1");
+
+        Shop shop2 = new Shop();
+        shop2.setShopName("店铺B");
+        shop2.setShopId("2");
+
         List<Object> list = new ArrayList<Object>();
-        List<String> rowData = new ArrayList<String>();
-                rowData.add("222");
-                rowData.add("33");
-                rowData.add("334");
-                list.add(rowData);
-                list.add("dsfdsaf");
-                list.add("dsfdsaf");
-                list.add("dsfdsaf");
-                list.add("dsfdsaf");
-                list.add("dsfdsaf");
-                list.add("dsfdsaf");
-                list.add("dsfdsaf");
-                list.add("dsfdsaf");
-                list.add("dsfdsaf");
-                list.add("dsfdsaf");
-                list.add("dsfdsaf");
-                list.add("dsfdsaf");
+        list.add(shop1);
+        list.add(shop2);
+
         Map map = new HashMap();
         map.put("data", list);
         map.put("recordsTotal", list.size());

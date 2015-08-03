@@ -74,6 +74,16 @@
             serverSide: true    //服务端处理
         };
         ops = $.extend({}, defaults, ops || {});
+        //设置grid要显示的值
+        $(this).find("table thead th").each(function () {
+                if ($(this).text().trim() == "") {
+                    ops.columns.push({"data": "tableIndex"});
+                } else {
+                    ops.columns.push({"data": $(this).text().trim()});
+                }
+            }
+        )
+
         //在grid上设置属性...
         if ($(this).attr("query") == "false") {
             ops.enabledQuery = false;
@@ -120,6 +130,7 @@
                         "ajax": {
                             "url": ops.url // ajax source
                         },
+                        "columns": ops.columns, //要显示的值
                         "order": [
                             [1, "asc"]
                         ]// set first column as a default sort by asc

@@ -113,12 +113,17 @@ var Datatable = function() {
                                 $.uniform.update($('.group-checkable', table));
                             }
 
+                            //为每个grid添加 checkbox ;
+                            $.each(res.data, function (key, value) {
+                                res.data[key].tableIndex = '<input type="checkbox" name="id[]" value="' + key + '">';
+                            });
+
+
                             if (tableOptions.onSuccess) {
                                 tableOptions.onSuccess.call(undefined, the);
                             }
 
                             Metronic.unblockUI(tableContainer);
-
                             return res.data;
                         },
                         "error": function() { // handle general connection errors

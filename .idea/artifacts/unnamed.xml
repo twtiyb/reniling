@@ -46,8 +46,6 @@
           <element id="library" level="project" name="Maven: org.apache.maven:maven-project:2.2.1" />
           <element id="library" level="project" name="Maven: org.apache.maven:maven-repository-metadata:2.2.1" />
           <element id="library" level="project" name="Maven: org.apache.maven:maven-settings:2.2.1" />
-          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.10" />
-          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.10" />
           <element id="library" level="project" name="Maven: org.codehaus.plexus:plexus-container-default:1.0-alpha-9-stable-1" />
           <element id="library" level="project" name="Maven: org.codehaus.plexus:plexus-interactivity-api:1.0-alpha-4" />
           <element id="library" level="project" name="Maven: org.codehaus.plexus:plexus-interpolation:1.11" />
@@ -66,6 +64,12 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.2.13.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:3.2.13.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:3.2.13.RELEASE" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-jaxrs:1.9.13" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" />
+        </element>
+        <element id="directory" name="classes">
+          <element id="module-output" name="reniling" />
         </element>
       </element>
     </root>
