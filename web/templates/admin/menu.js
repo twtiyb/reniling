@@ -28,7 +28,7 @@
                 html += "</ul>"
             },
             addItems: function (item, menu) {
-                if (item.items.length == 0) {
+                if (item.items == null) {
                     html += "<li><a abc='"+item.url+"' href='javascript:;'>" +
                     "<i class='" + item.icon + "'></i>" + item.name + "</a></li>"
                 } else {
@@ -60,5 +60,6 @@
     };
 })(jQuery);
 $(document).ready(function () {
-    $("#menssssu").xxmenu({"url": "menuData.json"});
+    //$("#menssssu").xxmenu({"url": "menuData.json"});
+    $("#menssssu").xxmenu({"url": "/menuTree.json"});
 })
