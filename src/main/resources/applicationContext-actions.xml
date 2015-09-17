@@ -1,31 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
-           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-      <!-- base start-->
-	<bean name="homeAction" class="cn.com.iscs.ecm.HomeAction" scope="prototype"></bean>
-	<bean name="testAction" class="cn.com.iscs.ecm.test.TestAction" scope="prototype"></bean>
-	<bean name="codedataAction" class="cn.com.iscs.ecm.action.pub.CodeDataAction" scope="prototype"></bean>
-	<bean name="menuAction" class="cn.com.iscs.ecm.action.pub.MenuAction" scope="prototype"></bean>
-	<bean name="syEdiSyncLogAction" class="cn.com.iscs.ecm.action.base.SyEdiSyncLogAction" scope="prototype"></bean>
-	<bean name="loginAction" class="cn.com.iscs.ecm.action.pub.LoginAction" scope="prototype"></bean>
-	<bean name="syLoginAction" class="cn.com.iscs.ecm.action.system.SyLoginAction" scope="prototype"></bean>
-	<bean name="serverStatusAction" class="cn.com.iscs.openapi.ServerStatusAction" scope="prototype"></bean>
-	<bean name="apiAction" class="cn.com.iscs.openapi.ApiAction" scope="prototype"></bean>
+    <!-- base start-->
+    <bean name="homeAction" class="cn.com.iscs.ecm.HomeAction" scope="prototype"></bean>
+    <bean name="testAction" class="cn.com.iscs.ecm.test.TestAction" scope="prototype"></bean>
+    <bean name="codedataAction" class="cn.com.iscs.ecm.action.pub.CodeDataAction" scope="prototype"></bean>
+    <bean name="menuAction" class="cn.com.iscs.ecm.action.pub.MenuAction" scope="prototype"></bean>
+    <bean name="syEdiSyncLogAction" class="cn.com.iscs.ecm.action.base.SyEdiSyncLogAction" scope="prototype"></bean>
+    <bean name="loginAction" class="cn.com.iscs.ecm.action.pub.LoginAction" scope="prototype"></bean>
+    <bean name="syLoginAction" class="cn.com.iscs.ecm.action.system.SyLoginAction" scope="prototype"></bean>
+    <bean name="serverStatusAction" class="cn.com.iscs.openapi.ServerStatusAction" scope="prototype"></bean>
+    <bean name="apiAction" class="cn.com.iscs.openapi.ApiAction" scope="prototype"></bean>
     <bean name="weixinAction" class="cn.com.iscs.openapi.WeixinAction" scope="prototype"></bean>
     <bean name="hbEmployeeAction" class="cn.com.iscs.ecm.action.base.HbEmployeeAction" scope="prototype"></bean>
     <bean name="stockApiAction" class="cn.com.iscs.openapi.StockApiAction" scope="prototype"></bean>
-	<bean name="fileUploadAction" class="cn.com.iscs.ecm.action.pub.FileUploadAction" scope="prototype"></bean>
-	<bean name="fileDownloadAction" class="cn.com.iscs.ecm.action.pub.FileDownloadAction" scope="prototype"></bean>
-	<bean name="monitorAction" class="cn.com.iscs.ecm.action.pub.MonitorAction" scope="prototype"></bean>
-	<bean name="gridLayoutAction" class="cn.com.iscs.ecm.action.pub.GridLayoutAction" scope="prototype"></bean>
-	<bean name="gridQueryAction" class="cn.com.iscs.ecm.action.pub.GridQueryAction" scope="prototype"></bean>
-	<bean name="gridsterAction" class="cn.com.iscs.ecm.action.pub.GridsterAction" scope="prototype"></bean>
+    <bean name="fileUploadAction" class="cn.com.iscs.ecm.action.pub.FileUploadAction" scope="prototype"></bean>
+    <bean name="fileDownloadAction" class="cn.com.iscs.ecm.action.pub.FileDownloadAction" scope="prototype"></bean>
+    <bean name="monitorAction" class="cn.com.iscs.ecm.action.pub.MonitorAction" scope="prototype"></bean>
+    <bean name="gridLayoutAction" class="cn.com.iscs.ecm.action.pub.GridLayoutAction" scope="prototype"></bean>
+    <bean name="gridQueryAction" class="cn.com.iscs.ecm.action.pub.GridQueryAction" scope="prototype"></bean>
+    <bean name="gridsterAction" class="cn.com.iscs.ecm.action.pub.GridsterAction" scope="prototype"></bean>
     <bean name="syPageAction" class="cn.com.iscs.ecm.action.base.SyPageAction" scope="prototype"></bean>
     <bean name="syEmpAuthAction" class="cn.com.iscs.ecm.action.system.SyEmpAuthAction" scope="prototype"></bean>
     <bean name="syMenuViewAction" class="cn.com.iscs.ecm.action.system.SyMenuViewAction" scope="prototype"></bean>
@@ -35,7 +31,7 @@
     <bean name="syExportAsyncAction" class="cn.com.iscs.ecm.action.system.SyExportAsyncAction" scope="prototype"></bean>
     <bean name="syCkeditorAction" class="cn.com.iscs.ecm.action.system.SyCkeditorAction" scope="prototype"></bean>
     <bean name="baRoleAction" class="cn.com.iscs.ecm.action.base.BaRoleAction" scope="prototype"></bean>
-      <!--base end -->
+    <!--base end -->
 
 
 </beans>

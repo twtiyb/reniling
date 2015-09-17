@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
-           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+
+
            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-           
-	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" lazy-init="false">  
-    	<property name="locations">
-        	<list>
-            	<value>classpath*:database.properties</value>
-        	</list>
-    	</property>
-	</bean>
-	
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          lazy-init="false">
+        <property name="locations">
+            <list>
+                <value>classpath*:database.properties</value>
+            </list>
+        </property>
+    </bean>
+
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-    	<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
-    	
-    	<property name="jdbcUrl" value="${database.url}"></property><!-- 183.129.160.236   192.168.1.170-->
-    	<property name="user" value="${database.username}"></property>
-    	<property name="password" value="${database.password}"></property>
-    	
+        <property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
+
+        <property name="jdbcUrl" value="${database.url}"/>
+        <!-- 183.129.160.236   192.168.1.170-->
+        <property name="user" value="${database.username}"/>
+        <property name="password" value="${database.password}"/>
+
         <!-- 连接池中保留的最小连接数。默认为15 -->
         <property name="minPoolSize" value="3"></property>
 
@@ -48,7 +48,7 @@
         <property name="acquireIncrement" value="3"></property>
 
         <!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 -->
-        <property name="acquireRetryAttempts" value="3"></property>    
+        <property name="acquireRetryAttempts" value="3"></property>
 
         <property name="autoCommitOnClose" value="false"></property>
 
@@ -62,81 +62,81 @@
 
     </bean>
     <!--<bean id="rptDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">-->
-    	<!--<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>-->
-    	<!---->
-    	<!--<property name="jdbcUrl" value="${database.rpt.url}"></property>-->
-    	<!--<property name="user" value="${database.rpt.username}"></property>-->
-    	<!--<property name="password" value="${database.rpt.password}"></property>-->
-        <!--<property name="minPoolSize" value="5"></property>-->
-        <!--<property name="maxPoolSize" value="10"></property>-->
-        <!--<property name="initialPoolSize" value="5"></property>-->
-        <!--<property name="maxIdleTime" value="60"></property>-->
-        <!--<property name="idleConnectionTestPeriod" value="60"></property>-->
-        <!--<property name="testConnectionOnCheckin" value="true"></property>-->
-        <!--<property name="numHelperThreads" value="10"></property>-->
-        <!--<property name="acquireIncrement" value="5"></property>-->
-        <!--<property name="acquireRetryAttempts" value="3"></property>    -->
-        <!--<property name="autoCommitOnClose" value="false"></property>-->
-        <!--<property name="maxStatements" value="10"></property>-->
-        <!--<property name="maxStatementsPerConnection" value="3"></property>-->
+    <!--<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>-->
+    <!---->
+    <!--<property name="jdbcUrl" value="${database.rpt.url}"></property>-->
+    <!--<property name="user" value="${database.rpt.username}"></property>-->
+    <!--<property name="password" value="${database.rpt.password}"></property>-->
+    <!--<property name="minPoolSize" value="5"></property>-->
+    <!--<property name="maxPoolSize" value="10"></property>-->
+    <!--<property name="initialPoolSize" value="5"></property>-->
+    <!--<property name="maxIdleTime" value="60"></property>-->
+    <!--<property name="idleConnectionTestPeriod" value="60"></property>-->
+    <!--<property name="testConnectionOnCheckin" value="true"></property>-->
+    <!--<property name="numHelperThreads" value="10"></property>-->
+    <!--<property name="acquireIncrement" value="5"></property>-->
+    <!--<property name="acquireRetryAttempts" value="3"></property>    -->
+    <!--<property name="autoCommitOnClose" value="false"></property>-->
+    <!--<property name="maxStatements" value="10"></property>-->
+    <!--<property name="maxStatementsPerConnection" value="3"></property>-->
 
     <!--</bean>-->
-    
+
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />
+        <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
-        <property name="typeAliasesPackage" value="cn.com.iscs.ecm.entity" />
+        <property name="typeAliasesPackage" value="cn.com.iscs.ecm.entity"/>
         <!--<property name="mapperLocations" value="classpath:cn/com/iscs/ecm/mapper/**/*.xml" />-->
     </bean>
     <!--<bean id="rptSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
-        <!--<property name="dataSource" ref="rptDataSource" />-->
-        <!--<property name="configLocation" value="classpath:mybatis-config.xml"/>-->
-        <!--<property name="typeAliasesPackage" value="cn.com.iscs.ecm.entity"/>-->
+    <!--<property name="dataSource" ref="rptDataSource" />-->
+    <!--<property name="configLocation" value="classpath:mybatis-config.xml"/>-->
+    <!--<property name="typeAliasesPackage" value="cn.com.iscs.ecm.entity"/>-->
     <!--</bean>-->
-    
+
     <!-- 注册Mapper,使用自动扫描包的方式来注册各种Mapper
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
     <bean class="cn.com.iscs.mybatis.MapperScanner">
-       <property name="basePackage" value="cn.com.iscs.ecm.mapper"/>
-       <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-       <!--<property name="rptSqlSessionFactoryBeanName" value="rptSqlSessionFactory"/>-->
+        <property name="basePackage" value="cn.com.iscs.ecm.mapper"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <!--<property name="rptSqlSessionFactoryBeanName" value="rptSqlSessionFactory"/>-->
     </bean>
-    
-    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
+
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
     <context:component-scan base-package="cn.com.iscs.ecm.service"></context:component-scan>
-    
+
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource" />
+        <property name="dataSource" ref="dataSource"/>
     </bean>
-  <!-- 
-  <tx:advice id="txAdvice" transaction-manager="transactionManager">
-    <tx:attributes>
-      <tx:method name="*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
-    </tx:attributes>
-  </tx:advice>
-  
-  <aop:config>
-    <aop:pointcut id="allServiceMethod" expression="execution(* cn.com.iscs.*.service.*.*(..))" />
-    <aop:advisor pointcut-ref="allServiceMethod" advice-ref="txAdvice" />
-  </aop:config>
-   -->
-   
-  <bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+    <!--
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+      <tx:attributes>
+        <tx:method name="*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+      </tx:attributes>
+    </tx:advice>
+
+    <aop:config>
+      <aop:pointcut id="allServiceMethod" expression="execution(* cn.com.iscs.*.service.*.*(..))" />
+      <aop:advisor pointcut-ref="allServiceMethod" advice-ref="txAdvice" />
+    </aop:config>
+     -->
+
+    <bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
         <property name="transactionManager">
-            <ref bean="transactionManager" />
+            <ref bean="transactionManager"/>
         </property>
         <property name="transactionAttributes">
             <props>
                 <prop key="*">PROPAGATION_REQUIRED,-Exception</prop>
             </props>
         </property>
-   </bean>
+    </bean>
 
-  <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
         <property name="beanNames">
-        	<list>
-	            <value>*Service</value>
-	            <value>*ServiceImpl</value>
+            <list>
+                <value>*Service</value>
+                <value>*ServiceImpl</value>
             </list>
         </property>
         <property name="interceptorNames">
@@ -144,24 +144,25 @@
                 <value>transactionInterceptor</value>
             </list>
         </property>
-  </bean>
-  
-  <!-- syNextNumberService 独立事务 -->
-  <bean id="transactionInterceptorNextNumber" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+    </bean>
+
+    <!-- syNextNumberService 独立事务 -->
+    <bean id="transactionInterceptorNextNumber"
+          class="org.springframework.transaction.interceptor.TransactionInterceptor">
         <property name="transactionManager">
-            <ref bean="transactionManager" />
+            <ref bean="transactionManager"/>
         </property>
         <property name="transactionAttributes">
             <props>
                 <prop key="*">PROPAGATION_REQUIRES_NEW,-Exception</prop>
             </props>
         </property>
-   </bean>
+    </bean>
 
-  <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
         <property name="beanNames">
-        	<list>
-	            <value>*NextNumberService</value>
+            <list>
+                <value>*NextNumberService</value>
             </list>
         </property>
         <property name="interceptorNames">
@@ -169,31 +170,30 @@
                 <value>transactionInterceptorNextNumber</value>
             </list>
         </property>
-  </bean>
-   <!-- 
-  <bean id="scheduleManagerFactory" class="cn.com.iscs.schedule.ScheduleManagerFactory"
-	init-method="init" destroy-method="close">
-   	<property name="dataSource" ref="dataSource"/>
-   	<property name="keyDataBean" ref="keyDataBean"/>
-   	<property name="startJob" value="xxSTARTxxJOBxx"></property>
-  </bean> 
-     -->
-  <bean class="cn.com.iscs.util.SpringUtil"></bean>
-  <bean id="keyDataBean" class="cn.com.iscs.ecm.KeyDataBean"></bean>
-  
-  <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    </bean>
+    <!--
+   <bean id="scheduleManagerFactory" class="cn.com.iscs.schedule.ScheduleManagerFactory"
+     init-method="init" destroy-method="close">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="keyDataBean" ref="keyDataBean"/>
+        <property name="startJob" value="xxSTARTxxJOBxx"></property>
+   </bean>
+      -->
+    <bean class="cn.com.iscs.util.SpringUtil"></bean>
+    <bean id="keyDataBean" class="cn.com.iscs.ecm.KeyDataBean"></bean>
+
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
         <property name="host" value="smtp.qq.com"></property>
         <property name="username" value="zhipeibu@iscs.com.cn"></property>
         <property name="password" value="wczhipei7"></property>
         <property name="defaultEncoding" value="UTF-8"></property>
         <property name="javaMailProperties">
-		  <props>
-		    <prop key="mail.smtp.auth">true</prop>
-		    <prop key="mail.smtp.timeout">20000</prop>
-		  </props>
-		</property>
- </bean>
+            <props>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.timeout">20000</prop>
+            </props>
+        </property>
+    </bean>
 
-  
-    
+
 </beans>
