@@ -2,6 +2,8 @@ package com.reniling.action;
 
 import com.reniling.entity.Shop;
 import com.reniling.entity.SyMenu;
+import com.reniling.util.MapUtil;
+import com.reniling.util.front.PageParameter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,7 +25,6 @@ public class MyController {
     public Object menuTree(HttpServletRequest request) {
         Map mapParam = request.getParameterMap();
 
-        //看看为啥提交不上git
         SyMenu menu1 = new SyMenu();
         menu1.setIcon("click");
         menu1.setUrl("content_test.html");
@@ -63,25 +64,21 @@ public class MyController {
     @RequestMapping("/showShopJson*")
     @ResponseBody
     public Object showShopJson(HttpServletRequest request) {
-        Map mapParam = request.getParameterMap();
 
-
-        Shop shop1 = new Shop();
-        shop1.setShopName("店铺A");
-        shop1.setShopId("1");
-
-        Shop shop2 = new Shop();
-        shop2.setShopName("店铺B");
-        shop2.setShopId("2");
-
+        PageParameter pageParameter = MapUtil.getPageParameter(request.getParameterMap());
         List<Object> list = new ArrayList<Object>();
-        list.add(shop1);
-        list.add(shop2);
+        for (int i = 0; i < 100; i++) {
+            Shop shop = new Shop();
+            shop.setShopName("店铺" + i);
+            shop.setShopId(new Integer(i).toString());
+            list.add(shop);
+        }
 
         Map map = new HashMap();
-        map.put("data", list);
         map.put("recordsTotal", list.size());
         map.put("recordsFiltered", list.size());
+        map.put("recordsFiltered", list.size());
+        map.put("data", list.subList(pageParameter.getStart(), pageParameter.getEnd()));
         return map;
     }
 

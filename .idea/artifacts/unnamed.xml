@@ -72,6 +72,7 @@
           <element id="module-output" name="reniling" />
         </element>
       </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/web/WEB-INF/lib" />
     </root>
   </artifact>
 </component>
