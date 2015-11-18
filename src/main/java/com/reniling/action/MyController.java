@@ -20,8 +20,8 @@ import java.util.Map;
  */
 @Controller
 public class MyController {
-    @RequestMapping("/menuTree*")
     @ResponseBody
+    @RequestMapping("/menuTree*")
     public Object menuTree(HttpServletRequest request) {
         Map mapParam = request.getParameterMap();
 
@@ -61,8 +61,8 @@ public class MyController {
         return modelAndView;
     }
 
-    @RequestMapping("/showShopJson*")
     @ResponseBody
+    @RequestMapping("/showShopJson*")
     public Object showShopJson(HttpServletRequest request) {
 
         PageParameter pageParameter = MapUtil.getPageParameter(request.getParameterMap());
@@ -81,5 +81,4 @@ public class MyController {
         map.put("data", list.subList(pageParameter.getStart(), pageParameter.getEnd()));
         return map;
     }
-
 }

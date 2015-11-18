@@ -53,6 +53,7 @@
           <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/spring-tx/3.2.13.RELEASE/spring-tx-3.2.13.RELEASE.jar" />
           <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/spring-web/3.2.13.RELEASE/spring-web-3.2.13.RELEASE.jar" />
           <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/3.2.13.RELEASE/spring-webmvc-3.2.13.RELEASE.jar" />
+          <element id="library" level="application" name="Java EE 6-Java EE 6" />
         </element>
         <element id="directory" name="classes">
           <element id="module-output" name="reniling" />
